@@ -13,10 +13,10 @@ const columns = canvas.width / fontSize;
 const rainDrops = Array(Math.floor(columns)).fill(1);
 
 const draw = () => {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fade effect
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fade effect for smooth transition
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = '#0F0'; // Binary color
+  ctx.fillStyle = '#00BFFF'; // Blue color for binary
   ctx.font = `${fontSize}px monospace`;
 
   // Loop through the drops and draw binary code
