@@ -1,3 +1,14 @@
+/* Binary background */
+#binaryCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, #1c1c1c, #333);
+}
+
 /* General reset and body styling */
 * {
   margin: 0;
@@ -12,17 +23,6 @@ body {
   line-height: 1.6;
 }
 
-/* Binary background */
-#binaryCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: linear-gradient(to bottom, #1c1c1c, #333);
-}
-
 /* Navigation Bar */
 .navbar {
   background-color: rgba(31, 31, 31, 0.9);
@@ -35,8 +35,18 @@ body {
 
 .navbar .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Keep space between logo and links */
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar a.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #eaeaea;
+  margin-left: 20%; /* Moves the logo closer to the center */
 }
 
 .navbar ul {
@@ -54,14 +64,7 @@ body {
   font-size: 1.2em;
 }
 
-.navbar a.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #eaeaea;
-}
-
-/* Header */
+/* Home Header */
 header.home-header {
   height: 100vh;
   display: flex;
