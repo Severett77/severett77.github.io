@@ -10,6 +10,7 @@ body {
   background: linear-gradient(to bottom, #1f1f1f, #2e2e2e);
   color: #f1f1f1;
   line-height: 1.6;
+  padding-top: 80px; /* To prevent content from hiding behind fixed navbar */
 }
 
 /* Binary background */
@@ -35,23 +36,10 @@ body {
 
 .navbar .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Keep space between logo and links */
   align-items: center;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-}
-
-.navbar ul li {
-  margin: 0 15px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #f1f1f1;
-  font-size: 1.2em;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .navbar a.logo {
@@ -59,9 +47,43 @@ body {
   font-weight: bold;
   text-decoration: none;
   color: #eaeaea;
+  margin-left: 20%; /* Moves the logo closer to the center */
 }
 
-/* Header */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; /* Allows the items to wrap on smaller screens */
+}
+
+.navbar ul li {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: rgba(50, 50, 50, 0.8);
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar ul li:hover {
+  background-color: rgba(70, 70, 70, 0.9);
+  transform: scale(1.05);
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 1.2em;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px 0;
+  display: block;
+}
+
+/* Home Header */
 header.home-header {
   height: 100vh;
   display: flex;
@@ -69,18 +91,22 @@ header.home-header {
   align-items: center;
   background: rgba(31, 31, 31, 0.8);
   color: #eaeaea;
+  padding: 0 20px; /* Padding to prevent text from touching the edges on mobile */
 }
 
 header h1 {
   font-size: 4.5em;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 3px;
+  text-align: center; /* Center align text on smaller screens */
 }
 
 header p.tagline {
   font-size: 1.5em;
   color: #c9c9c9;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* Sections */
@@ -118,4 +144,66 @@ h2 {
   padding: 10px 25px;
   text-decoration: none;
   border-radius: 5px;
+}
+
+/* Responsive Design for Mobile and Tablets */
+
+/* For screens smaller than 1024px (Tablets and smaller desktops) */
+@media (max-width: 1024px) {
+  .navbar a.logo {
+    margin-left: 10%; /* Reduce margin on smaller screens */
+  }
+
+  .navbar ul li {
+    margin: 0 10px; /* Reduce spacing between nav items */
+  }
+
+  header h1 {
+    font-size: 3.5em; /* Decrease font size on smaller screens */
+  }
+
+  header p.tagline {
+    font-size: 1.2em; /* Decrease tagline size on smaller screens */
+  }
+
+  section {
+    padding: 60px 20px; /* Reduce padding in sections */
+  }
+
+  h2 {
+    font-size: 2em; /* Decrease section header size */
+  }
+}
+
+/* For screens smaller than 768px (Mobile) */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column; /* Stack nav items vertically on mobile */
+  }
+
+  .navbar ul li {
+    margin: 10px 0; /* Add vertical spacing between items */
+    padding: 10px; /* Adjust padding for mobile */
+  }
+
+  .navbar a.logo {
+    margin-left: 0; /* Center logo on mobile */
+    font-size: 1.3em; /* Decrease font size of the logo */
+  }
+
+  header h1 {
+    font-size: 2.5em; /* Smaller font size for mobile */
+  }
+
+  header p.tagline {
+    font-size: 1em; /* Smaller tagline for mobile */
+  }
+
+  section {
+    padding: 40px 20px; /* Reduce padding in sections on mobile */
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
 }
