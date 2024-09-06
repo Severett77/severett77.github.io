@@ -13,17 +13,19 @@ const columns = canvas.width / fontSize;
 const rainDrops = Array(Math.floor(columns)).fill(1);
 
 const draw = () => {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Fade effect for smooth transition
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = '#00BFFF'; // Blue binary code color
+  ctx.fillStyle = '#00BFFF'; // Blue color for binary
   ctx.font = `${fontSize}px monospace`;
 
+  // Loop through the drops and draw binary code
   rainDrops.forEach((y, index) => {
     const text = binary[Math.floor(Math.random() * binary.length)];
     const x = index * fontSize;
     ctx.fillText(text, x, y * fontSize);
 
+    // Randomly reset rain drops when they reach the bottom
     if (y * fontSize > canvas.height && Math.random() > 0.975) {
       rainDrops[index] = 0;
     }

@@ -1,3 +1,14 @@
+/* Canvas for falling binary code */
+#binaryCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, #1c1c1c, #333); /* Gradient grey background */
+}
+
 /* General reset and body styling */
 * {
   margin: 0;
@@ -7,204 +18,139 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #1f1f1f, #2e2e2e);
+  background: linear-gradient(to bottom, #1f1f1f, #2e2e2e); /* Dynamic grey gradient */
   color: #f1f1f1;
   line-height: 1.6;
-  padding-top: 80px; /* To prevent content from hiding behind fixed navbar */
 }
 
-/* Binary background */
-#binaryCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: linear-gradient(to bottom, #1c1c1c, #333);
-}
-
-/* Navigation Bar */
-.navbar {
-  background-color: rgba(31, 31, 31, 0.9);
-  padding: 15px 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: space-between; /* Keep space between logo and links */
-  align-items: center;
+.container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
+  padding: 20px;
 }
 
-.navbar a.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #eaeaea;
-  margin-left: 20%; /* Moves the logo closer to the center */
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap; /* Allows the items to wrap on smaller screens */
-}
-
-.navbar ul li {
-  margin: 0 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  background-color: rgba(50, 50, 50, 0.8);
-  border-radius: 5px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.navbar ul li:hover {
-  background-color: rgba(70, 70, 70, 0.9);
-  transform: scale(1.05);
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #f1f1f1;
-  font-size: 1.2em;
-  width: 100%;
-  height: 100%;
+header {
+  background: linear-gradient(to right, rgba(31, 31, 31, 0.8), rgba(62, 62, 62, 0.8)); /* Subtle gradient */
+  padding: 80px 0;
   text-align: center;
-  padding: 10px 0;
-  display: block;
+  border-bottom: 2px solid #333;
 }
 
-/* Home Header */
-header.home-header {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(31, 31, 31, 0.8);
+.header-content {
   color: #eaeaea;
-  padding: 0 20px; /* Padding to prevent text from touching the edges on mobile */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow */
 }
 
-header h1 {
+h1 {
   font-size: 4em;
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
-  text-align: center;
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
-header p.tagline {
-  font-size: 1.4em;
+.tagline {
+  font-size: 1.5em;
   color: #c9c9c9;
   font-family: 'Roboto', sans-serif;
-  text-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
 }
 
-/* Sections */
 section {
-  padding: 70px 0;
-  text-align: center;
+  padding: 40px 0;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: rgba(50, 50, 50, 0.7); /* Slight transparency */
 }
 
 h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
+  color: #f1f1f1;
 }
 
-.project-list, ul {
+p {
+  font-size: 1.3em;
+  color: #ccc;
+}
+
+ul {
   list-style: none;
-  padding: 0;
 }
 
-/* Project and Skills Containers */
-.project, li {
-  background-color: rgba(50, 50, 50, 0.8);
-  padding: 20px;
+ul li {
+  font-size: 1.3em;
+  padding: 10px 0;
+}
+
+/* Smooth scrolling effect */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Project block hover effect */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project {
+  flex: 1 1 45%;
+  background-color: #3a3a3a;
   margin: 10px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
-.project:hover, li:hover {
-  background-color: rgba(70, 70, 70, 0.9);
+.project h3 {
+  color: #eaeaea;
 }
 
-/* Contact Button */
+.project p {
+  color: #c9c9c9;
+}
+
+.project:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Contact button */
 .contact-button {
+  display: inline-block;
   background-color: #4CAF50;
   color: white;
-  padding: 10px 25px;
+  padding: 12px 25px;
+  font-size: 1.1em;
   text-decoration: none;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-/* Responsive Design for Mobile and Tablets */
-
-/* For screens smaller than 1024px (Tablets and smaller desktops) */
-@media (max-width: 1024px) {
-  .navbar a.logo {
-    margin-left: 10%; /* Reduce margin on smaller screens */
-  }
-
-  .navbar ul li {
-    margin: 0 10px; /* Reduce spacing between nav items */
-  }
-
-  header h1 {
-    font-size: 3em; /* Decrease font size on smaller screens */
-  }
-
-  header p.tagline {
-    font-size: 1.2em; /* Decrease tagline size on smaller screens */
-  }
-
-  section {
-    padding: 60px 20px; /* Reduce padding in sections */
-  }
-
-  h2 {
-    font-size: 2em; /* Decrease section header size */
-  }
+.contact-button:hover {
+  background-color: #45a049;
 }
 
-/* For screens smaller than 768px (Mobile) */
+footer {
+  background-color: #444;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer p {
+  color: #bbb;
+}
+
 @media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column; /* Stack nav items vertically on mobile */
-    align-items: center;
+  /* Responsive design for smaller screens */
+  h1 {
+    font-size: 2.8em;
   }
 
-  .navbar ul li {
-    margin: 10px 0; /* Add vertical spacing between items */
-    padding: 10px 15px; /* Adjust padding for mobile */
-  }
-
-  .navbar a.logo {
-    margin-left: 0; /* Center logo on mobile */
-    font-size: 1.4em; /* Decrease font size of the logo */
-  }
-
-  header h1 {
-    font-size: 2.8em; /* Smaller font size for mobile */
-  }
-
-  header p.tagline {
-    font-size: 1em; /* Smaller tagline for mobile */
-  }
-
-  section {
-    padding: 40px 20px; /* Reduce padding in sections on mobile */
-  }
-
-  h2 {
-    font-size: 1.8em; /* Decrease section heading size on mobile */
+  .tagline {
+    font-size: 1.2em;
   }
 }
